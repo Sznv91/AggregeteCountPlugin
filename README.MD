@@ -22,14 +22,16 @@
 может пойти не так. Если сборка окончилась не удачей, то готовый собранный jar файл находится
 в каталоге `readme-files`. Загрузить его можно по [ссылке](/readme-files/sazonov-counter-plugin.jar).
 
+#### Для сборки плагина вам потребуется версия `Java 1.8`. На более новых версиях возникают проблемы при сборке.
+
 Сперва необходимо скачать сертификаты с сайта AggreGate, для этого откройте в браузере [ссылку](https://store.aggregate.digital/service/rest/repository/browse/maven-public/)<br>
 Для Google Chrome нажмите слева от строки адреса нажмите `"View Site Information" -> "Connection is secure" -> "Certificate is valid"` <br>
 Перейдите на вкладку `"Details"` и на каждом из представленных сертификатов (3 шт) нажмите `"Export"`. Для уменьшения количества возможных 
-проблем при импорте, используйте Тип файла: `"DER-encoded binary"`. Имея все 3 файла на диске, используйте следующие команды
+проблем при импорте, используйте Тип файла: `"DER-encoded binary"`. Имея все 3 файла на диске, откройте CMD от имени администратора, и используйте следующие команды
 для импорта сертификатов:
-- `keytool -import -alias "_aggregate" -keystore "%JAVA_HOME%\lib\security\cacerts" -file {Указать путь к файлу _.aggregate.digital.der}`
-- `keytool -import -alias "_Global_agr" -keystore "%JAVA_HOME%\lib\security\cacerts" -file {Указать путь к файлу GlobalSign.der}`
-- `keytool -import -alias "Global_r6" -keystore "%JAVA_HOME%\lib\security\cacerts" -file {Указать путь к файлу GlobalSign GCC R6 AlphaSSL CA 2023.der}`
+- `keytool -import -alias "_aggregate" -keystore "%JAVA_HOME%\jre\lib\security\cacerts" -file {Указать путь к файлу _.aggregate.digital.der}`
+- `keytool -import -alias "_Global_agr" -keystore "%JAVA_HOME%\jre\lib\security\cacerts" -file {Указать путь к файлу GlobalSign.der}`
+- `keytool -import -alias "Global_r6" -keystore "%JAVA_HOME%\jre\lib\security\cacerts" -file {Указать путь к файлу GlobalSign GCC R6 AlphaSSL CA 2023.der}`
 
 В случае запроса пароля при импорте, попробуйте `changeit`
 
