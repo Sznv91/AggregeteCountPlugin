@@ -1,0 +1,16 @@
+<project name="AggreGate API">
+    <property name="parserDir" value="./src/main/java/com/tibbo/aggregate/common/expression/parser"/>
+
+    <target name="buildParser">
+        <jjtree target="${parserDir}/ExpressionParser.jjt" javacchome="${agg.home}/projects/libs/javacc-5.0"
+                outputdirectory="${parserDir}"/>
+        <javacc target="${parserDir}/ExpressionParser.jj" javacchome="${agg.home}/projects/libs/javacc-5.0"
+                outputdirectory="${parserDir}"/>
+    </target>
+    <target name="cleanParser">
+        <delete>
+            <fileset dir="${parserDir}" includes="*.jj"/>
+        </delete>
+    </target>
+    <target name="rebuildParser" depends="cleanParser, buildParser"/>
+</project>
